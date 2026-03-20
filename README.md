@@ -46,3 +46,29 @@ Using IaC, infrastructure is treated the same way as application code.
 5. **Disaster Recovery** – Entire environments can be rebuilt quickly.
 
 ---
+
+## Terraform vs Ansible
+
+| Feature | Terraform | Ansible |
+|------|------|------|
+| Primary Purpose | Infrastructure provisioning | Configuration management |
+| Language | HCL | YAML |
+| State Management | Maintains state file | Stateless |
+| Execution Model | Declarative | Procedural |
+| Best Use Case | Creating infrastructure resources | Configuring software on servers |
+
+### Example
+
+- Use **Terraform** to create:
+  - EC2 instances
+  - VPC networks
+  - Load balancers
+
+- Use **Ansible** to configure:
+  - Install Docker
+  - Setup Nginx
+  - Deploy application code
+
+Many DevOps teams use **Terraform + Ansible together**.
+
+---
