@@ -22,3 +22,27 @@ Terraform then automatically provisions and manages the resources across multipl
 - There is increasing focus on **policy enforcement, security scanning, and automated infrastructure governance**.
 
 ---
+
+## What is Infrastructure as Code (IaC)?
+
+**Infrastructure as Code (IaC)** is the practice of managing and provisioning infrastructure through **machine-readable configuration files instead of manual processes**.
+
+Using IaC, infrastructure is treated the same way as application code.
+
+### Key Principles of IaC
+
+- Version-controlled infrastructure
+- Automated provisioning
+- Reproducible environments
+- Reduced human error
+- Faster deployments
+
+### Why IaC Matters
+
+1. **Consistency** – Same infrastructure can be recreated across environments.
+2. **Automation** – Infrastructure can be deployed automatically using pipelines.
+3. **Scalability** – Large infrastructures can be managed efficiently.
+4. **Collaboration** – Teams can review infrastructure changes via pull requests.
+5. **Disaster Recovery** – Entire environments can be rebuilt quickly.
+
+---
