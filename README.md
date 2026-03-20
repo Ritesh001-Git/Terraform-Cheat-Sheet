@@ -72,3 +72,27 @@ Using IaC, infrastructure is treated the same way as application code.
 Many DevOps teams use **Terraform + Ansible together**.
 
 ---
+
+## Terraform vs AWS CloudFormation
+
+| Feature | Terraform | CloudFormation |
+|------|------|------|
+| Provider Support | Multi-cloud | AWS only |
+| Language | HCL | JSON / YAML |
+| Community | Large open-source ecosystem | AWS ecosystem |
+| Flexibility | Works with many providers | Limited to AWS services |
+| State Management | Local or remote state | Managed internally by AWS |
+
+### When to Use Terraform
+
+- Multi-cloud deployments
+- Hybrid cloud environments
+- Cross-platform infrastructure
+
+### When to Use CloudFormation
+
+- AWS-only infrastructure
+- Deep AWS integration
+- Native AWS service support
+
+---
