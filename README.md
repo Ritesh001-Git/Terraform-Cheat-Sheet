@@ -96,3 +96,160 @@ Many DevOps teams use **Terraform + Ansible together**.
 - Native AWS service support
 
 ---
+
+# Terraform Architecture
+
+Terraform follows a **declarative architecture** where users define the desired infrastructure state and Terraform determines how to reach that state.
+
+### Key Components
+
+**1. Terraform Core**
+- The main engine of Terraform.
+- Reads configuration files.
+- Builds an **execution plan**.
+- Communicates with providers to create or update infrastructure.
+
+**2. Providers**
+- Plugins that allow Terraform to interact with different platforms.
+- Examples include:
+  - AWS
+  - Azure
+  - Google Cloud
+  - Kubernetes
+  - GitHub
+
+Providers translate Terraform configurations into **API calls** to the target platform.
+
+**3. State File**
+- Terraform maintains a **state file (`terraform.tfstate`)** to track infrastructure.
+- This allows Terraform to know:
+  - What resources already exist
+  - What needs to change
+
+Interviewers often ask:
+- Why Terraform needs a **state file**
+- What happens if the state file is lost
+- How **remote state storage** works
+
+---
+
+# HCL (HashiCorp Configuration Language)
+
+**HCL** stands for **HashiCorp Configuration Language**.
+
+It is the language used by Terraform to define infrastructure.
+
+### Characteristics of HCL
+
+- Human-readable
+- Declarative
+- Supports variables and expressions
+- Easy to learn compared to JSON or YAML
+
+Terraform configurations are usually written in files with the extension: `# Terraform Architecture
+
+Terraform follows a **declarative architecture** where users define the desired infrastructure state and Terraform determines how to reach that state.
+
+### Key Components
+
+**1. Terraform Core**
+- The main engine of Terraform.
+- Reads configuration files.
+- Builds an **execution plan**.
+- Communicates with providers to create or update infrastructure.
+
+**2. Providers**
+- Plugins that allow Terraform to interact with different platforms.
+- Examples include:
+  - AWS
+  - Azure
+  - Google Cloud
+  - Kubernetes
+  - GitHub
+
+Providers translate Terraform configurations into **API calls** to the target platform.
+
+**3. State File**
+- Terraform maintains a **state file (`terraform.tfstate`)** to track infrastructure.
+- This allows Terraform to know:
+  - What resources already exist
+  - What needs to change
+
+Interviewers often ask:
+- Why Terraform needs a **state file**
+- What happens if the state file is lost
+- How **remote state storage** works
+
+---
+
+# HCL (HashiCorp Configuration Language)
+
+**HCL** stands for **HashiCorp Configuration Language**.
+
+It is the language used by Terraform to define infrastructure.
+
+### Characteristics of HCL
+
+- Human-readable
+- Declarative
+- Supports variables and expressions
+- Easy to learn compared to JSON or YAML
+
+Terraform configurations are usually written in files with the extension: `# Terraform Architecture
+
+Terraform follows a **declarative architecture** where users define the desired infrastructure state and Terraform determines how to reach that state.
+
+### Key Components
+
+**1. Terraform Core**
+- The main engine of Terraform.
+- Reads configuration files.
+- Builds an **execution plan**.
+- Communicates with providers to create or update infrastructure.
+
+**2. Providers**
+- Plugins that allow Terraform to interact with different platforms.
+- Examples include:
+  - AWS
+  - Azure
+  - Google Cloud
+  - Kubernetes
+  - GitHub
+
+Providers translate Terraform configurations into **API calls** to the target platform.
+
+**3. State File**
+- Terraform maintains a **state file (`terraform.tfstate`)** to track infrastructure.
+- This allows Terraform to know:
+  - What resources already exist
+  - What needs to change
+
+Interviewers often ask:
+- Why Terraform needs a **state file**
+- What happens if the state file is lost
+- How **remote state storage** works
+
+---
+
+# HCL (HashiCorp Configuration Language)
+
+**HCL** stands for **HashiCorp Configuration Language**.
+
+It is the language used by Terraform to define infrastructure.
+
+### Characteristics of HCL
+
+- Human-readable
+- Declarative
+- Supports variables and expressions
+- Easy to learn compared to JSON or YAML
+
+Terraform configurations are usually written in files with the extension: `.tf`
+
+Example:
+
+```hcl
+resource "aws_instance" "example" {
+  ami           = "ami-123456"
+  instance_type = "t2.micro"
+}
