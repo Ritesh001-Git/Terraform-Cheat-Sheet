@@ -397,3 +397,226 @@ Useful for:
 -   Avoiding unnecessary cloud costs
 -   Resetting infrastructure
 
+# Installing and Configuring AWS Provider in Terraform
+
+## 1. Add AWS Provider in Terraform
+
+First open your Terraform configuration file.
+
+You can create or edit the file using:
+
+``` bash
+nano terraform.tf
+```
+
+or
+
+``` bash
+vim terraform.tf
+```
+
+Now search on Google for **Terraform AWS Provider** and copy the
+provider configuration.
+
+Example configuration:
+
+``` hcl
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+```
+
+This tells Terraform:
+
+-   Which provider to use
+-   The source of the provider
+-   The compatible version
+
+------------------------------------------------------------------------
+
+# Using Multiple Cloud Providers
+
+Terraform supports **multi-cloud infrastructure**.
+
+You can also add providers like:
+
+### Google Cloud Provider
+
+``` hcl
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 4.0"
+    }
+  }
+}
+```
+
+### Azure Provider
+
+``` hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }
+  }
+}
+```
+
+This allows Terraform to manage infrastructure across **AWS, Google
+Cloud, and Azure**.
+
+------------------------------------------------------------------------
+
+# Connecting AWS CLI to Local Machine
+
+Terraform uses **AWS credentials** from your local system.\
+These credentials are configured using **AWS CLI**.
+
+------------------------------------------------------------------------
+
+## Step 1: Install AWS CLI
+
+Download AWS CLI according to your operating system.
+
+Official AWS CLI installation page:
+
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+Follow the commands for:
+
+-   Linux
+-   MacOS
+-   Windows
+
+After installation verify:
+
+``` bash
+aws --version
+```
+
+------------------------------------------------------------------------
+
+## Step 2: Create an IAM User in AWS
+
+1.  Login to AWS Console
+2.  Open **IAM (Identity and Access Management)**
+3.  Click **Users**
+4.  Click **Create User**
+5.  Give a username
+
+Example:
+
+    terraform-user
+
+------------------------------------------------------------------------
+
+## Step 3: Grant Permissions
+
+Attach required permissions such as:
+
+-   **AmazonS3FullAccess**
+-   **AmazonEC2FullAccess**
+
+These permissions allow Terraform to manage AWS resources.
+
+------------------------------------------------------------------------
+
+## Step 4: Create Access Keys
+
+1.  Open the created user
+2.  Go to **Security Credentials**
+3.  Click **Create Access Key**
+4.  Copy:
+
+-   Access Key ID
+-   Secret Access Key
+
+Store them safely.
+
+------------------------------------------------------------------------
+
+## Step 5: Configure AWS CLI
+
+Run:
+
+``` bash
+aws configure
+```
+
+You will be prompted to enter:
+
+    AWS Access Key ID:
+    AWS Secret Access Key:
+    Default region name:
+    Default output format:
+
+Example:
+
+    AWS Access Key ID: AKIAxxxxxxx
+    AWS Secret Access Key: xxxxxxxxxxxxxxxxx
+    Default region name: ap-south-1
+    Default output format: json
+
+After this step your **local machine is connected to AWS**.
+
+Terraform can now create infrastructure using these credentials.
+
+------------------------------------------------------------------------
+
+# Example: Create an S3 Bucket using Terraform
+
+Before the code below, you can add a link pointing to the file where the
+Terraform code exists in your repository.
+
+Example:
+
+    [Link to S3 Bucket Terraform File]
+
+Terraform configuration example:
+
+``` hcl
+provider "aws" {
+  region = "ap-south-1"
+}
+
+resource "aws_s3_bucket" "terraform_bucket" {
+  bucket = "my-terraform-demo-bucket-12345"
+
+  tags = {
+    Name        = "TerraformBucket"
+    Environment = "Dev"
+  }
+}
+```
+
+This configuration will:
+
+-   Use the AWS provider
+-   Create an **S3 bucket**
+-   Attach tags to the bucket
+
+------------------------------------------------------------------------
+
+## Deploy the Bucket
+
+Run the Terraform workflow:
+
+``` bash
+terraform init
+terraform plan
+terraform apply
+```
+
+After confirmation, Terraform will create the **S3 bucket in your AWS
+account**.
+
+------------------------------------------------------------------------
