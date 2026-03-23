@@ -166,3 +166,64 @@ block_type "label1" "label2" {
   argument = value
 }
 ```
+
+## Components
+
+### Block
+
+Blocks define infrastructure components.
+
+Examples:
+
+-   `resource`
+-   `variable`
+-   `output`
+-   `provider`
+-   `module`
+
+Example:
+
+``` hcl
+resource "aws_instance" "web_server" {
+  ami           = "ami-12345"
+  instance_type = "t2.micro"
+}
+```
+
+------------------------------------------------------------------------
+
+### Parameters
+
+Parameters are identifiers used inside blocks.
+
+Example parameters:
+
+-   `ami`
+-   `instance_type`
+-   `region`
+
+Example:
+
+``` hcl
+provider "aws" {
+  region = "us-east-1"
+}
+```
+
+------------------------------------------------------------------------
+
+### Arguments
+
+Arguments assign values to parameters.
+
+Example:
+
+    instance_type = "t2.micro"
+
+Here:
+
+-   `instance_type` → parameter\
+-   `"t2.micro"` → argument value
+
+------------------------------------------------------------------------
+
