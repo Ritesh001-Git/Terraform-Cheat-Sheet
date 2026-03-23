@@ -574,12 +574,7 @@ Terraform can now create infrastructure using these credentials.
 
 # Example: Create an S3 Bucket using Terraform
 
-Before the code below, you can add a link pointing to the file where the
-Terraform code exists in your repository.
-
-Example:
-
-    [Link to S3 Bucket Terraform File]
+[Terraform S3 bucket Script](https://github.com/Ritesh001-Git/Terraform-Cheat-Sheet/blob/main/s3_bucket.tf)
 
 Terraform configuration example:
 
