@@ -669,6 +669,7 @@ ami = var.ec2_ami_id
 # Security Groups
 
 ## Ingress (Inbound Rules)
+Defines incoming traffic rules for a resource (e.g., allowing SSH on port 22).
 
 ``` hcl
 ingress {
@@ -681,6 +682,7 @@ ingress {
 ```
 
 ## Egress (Outbound Rules)
+Defines outgoing traffic rules, controlling how a resource can send data outside.
 
 ``` hcl
 egress {
@@ -695,6 +697,7 @@ egress {
 ------------------------------------------------------------------------
 
 # Variables
+A placeholder to store values (like AMI, instance type) to make Terraform configs reusable and flexible.
 
 ``` hcl
 variable "ec2_ami_id" {
@@ -712,6 +715,7 @@ ami = var.ec2_ami_id
 ------------------------------------------------------------------------
 
 # Output
+Used to display important values (like public IP, ARN) after Terraform execution in the terminal.
 
 ``` hcl
 output "ec2_public_ip" {
