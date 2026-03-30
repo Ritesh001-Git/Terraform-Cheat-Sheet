@@ -692,3 +692,89 @@ egress {
 ```
 
 ------------------------------------------------------------------------
+
+# Variables
+
+``` hcl
+variable "ec2_ami_id" {
+  default = "ami-05d2d839d4f73aafb"
+  type = string
+}
+```
+
+Usage:
+
+``` hcl
+ami = var.ec2_ami_id
+```
+
+------------------------------------------------------------------------
+
+# Output
+
+``` hcl
+output "ec2_public_ip" {
+  value = aws_instance.my_instance.public_ip
+}
+```
+
+------------------------------------------------------------------------
+
+# User Data
+
+``` hcl
+user_data = file("install_ngnix.sh")
+```
+
+------------------------------------------------------------------------
+
+# Meta Arguments
+
+## count
+
+``` hcl
+count = 2
+```
+
+``` hcl
+output "ec2_public_ip" {
+   value = aws_instance.my_instance[*].public_ip
+}
+```
+
+## for_each
+
+``` hcl
+for_each = {
+    instance_1 = "t3.medium"
+    instance_2 = "t3.micro"
+}
+```
+
+## Loop Output
+
+``` hcl
+output "ec2_public_ip" {
+  value = [
+    for k in aws_instance.my_instance : k.public_ip
+  ]
+}
+```
+
+------------------------------------------------------------------------
+
+# depends_on
+
+``` hcl
+depends_on = [ aws_security_group.my-sg , aws_key_pair.my-key ]
+```
+
+------------------------------------------------------------------------
+
+# Conditional
+
+``` hcl
+volume_size = var.env=="prd" ? 20 : 10
+```
+
+------------------------------------------------------------------------
