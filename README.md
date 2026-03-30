@@ -656,7 +656,7 @@ ssh -i id_rsa ubuntu@<public-ip>
 
 ------------------------------------------------------------------------
 
-# Interpolation
+## Interpolation
 
 Used to reference values from variables/resources.
 
@@ -666,9 +666,9 @@ ami = var.ec2_ami_id
 
 ------------------------------------------------------------------------
 
-# Security Groups
+## Security Groups
 
-## Ingress (Inbound Rules)
+### Ingress (Inbound Rules)
 Defines incoming traffic rules for a resource (e.g., allowing SSH on port 22).
 
 ``` hcl
@@ -681,7 +681,7 @@ ingress {
 }
 ```
 
-## Egress (Outbound Rules)
+### Egress (Outbound Rules)
 Defines outgoing traffic rules, controlling how a resource can send data outside.
 
 ``` hcl
@@ -696,7 +696,7 @@ egress {
 
 ------------------------------------------------------------------------
 
-# Variables
+## Variables
 A placeholder to store values (like AMI, instance type) to make Terraform configs reusable and flexible.
 
 ``` hcl
@@ -714,7 +714,7 @@ ami = var.ec2_ami_id
 
 ------------------------------------------------------------------------
 
-# Output
+## Output
 Used to display important values (like public IP, ARN) after Terraform execution in the terminal.
 
 ``` hcl
@@ -725,7 +725,7 @@ output "ec2_public_ip" {
 
 ------------------------------------------------------------------------
 
-# User Data
+## User Data
 A script that runs automatically when an EC2 instance starts, used for setup or installation tasks.
 
 ``` hcl
@@ -734,10 +734,10 @@ user_data = file("install_ngnix.sh")
 
 ------------------------------------------------------------------------
 
-# Meta Arguments
+## Meta Arguments
 Used to create multiple resources dynamically
 
-## count
+### count
 
 ``` hcl
 count = 2
@@ -749,7 +749,7 @@ output "ec2_public_ip" {
 }
 ```
 
-## for_each
+### for_each
 Used to create multiple resources dynamically using a map or set, accessed via each.key and each.value.
 
 ``` hcl
@@ -759,7 +759,7 @@ for_each = {
 }
 ```
 
-## Loop Output
+### Loop Output
 Used to extract values from multiple resources (like public IPs) using loops or splat ([*]) expressions.
 
 ``` hcl
@@ -772,7 +772,7 @@ output "ec2_public_ip" {
 
 ------------------------------------------------------------------------
 
-# depends_on
+## depends_on
 Explicitly defines resource dependency, ensuring one resource is created before another.
 
 ``` hcl
@@ -781,7 +781,7 @@ depends_on = [ aws_security_group.my-sg , aws_key_pair.my-key ]
 
 ------------------------------------------------------------------------
 
-# Conditional
+## Conditional
 Allows dynamic values based on conditions using syntax like condition ? true_val : false_val.
 
 ``` hcl
@@ -790,7 +790,7 @@ volume_size = var.env=="prd" ? 20 : 10
 
 ------------------------------------------------------------------------
 
-# EC2 Resource Example
+## EC2 Resource Example
 
 ``` hcl
 resource "aws_instance" "my_instance"{
