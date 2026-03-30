@@ -632,6 +632,7 @@ resource "aws_instance" "web" {
   ami           = "ami-12345"
   instance_type = "t2.micro"
 }
+```
 
 # EC2 + Advanced Terraform Concepts
 
@@ -667,7 +668,7 @@ ami = var.ec2_ami_id
 
 # Security Groups
 
-## Ingress
+## Ingress (Inbound Rules)
 
 ``` hcl
 ingress {
@@ -679,7 +680,7 @@ ingress {
 }
 ```
 
-## Egress
+## Egress (Outbound Rules)
 
 ``` hcl
 egress {
