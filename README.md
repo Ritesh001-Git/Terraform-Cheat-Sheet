@@ -664,3 +664,31 @@ ami = var.ec2_ami_id
 ```
 
 ------------------------------------------------------------------------
+
+# Security Groups
+
+## Ingress
+
+``` hcl
+ingress {
+    from_port = 22
+    to_port = 22
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "SSH open"
+}
+```
+
+## Egress
+
+``` hcl
+egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "All access open outbound"
+}
+```
+
+------------------------------------------------------------------------
