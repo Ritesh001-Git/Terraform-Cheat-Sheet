@@ -633,3 +633,34 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
 }
 
+# EC2 + Advanced Terraform Concepts
+
+## SSH Key Generation
+
+To securely connect to your EC2 instance, you need an SSH key.
+
+### Generate SSH Key
+
+``` bash
+ssh-keygen
+```
+
+-   Creates private and public keys
+
+### Usage
+
+``` bash
+ssh -i id_rsa ubuntu@<public-ip>
+```
+
+------------------------------------------------------------------------
+
+# Interpolation
+
+Used to reference values from variables/resources.
+
+``` hcl
+ami = var.ec2_ami_id
+```
+
+------------------------------------------------------------------------
