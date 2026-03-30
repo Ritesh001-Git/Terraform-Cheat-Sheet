@@ -778,3 +778,34 @@ volume_size = var.env=="prd" ? 20 : 10
 ```
 
 ------------------------------------------------------------------------
+
+# EC2 Resource Example
+
+``` hcl
+resource "aws_instance" "my_instance"{
+
+    for_each = {
+        instance_1 = "t3.medium"
+        instance_2 = "t3.micro"
+    }
+
+    depends_on = [ aws_security_group.my-sg , aws_key_pair.my-key ]
+
+    key_name = aws_key_pair.my-key.key_name
+    security_groups = [aws_security_group.my-sg.name]
+
+    instance_type = each.value
+    ami = var.ec2_ami_id
+
+    root_block_device {
+        volume_size = var.env=="prd" ? 20 : 10
+        volume_type = "gp3"
+    }
+
+    user_data = file("install_ngnix.sh")
+
+    tags = {
+        Name = each.key
+    }
+}
+```
