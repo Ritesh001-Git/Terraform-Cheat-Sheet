@@ -572,7 +572,7 @@ Terraform can now create infrastructure using these credentials.
 
 ------------------------------------------------------------------------
 
-# Example: Create an S3 Bucket using Terraform
+# Example 1: Create an S3 Bucket using Terraform
 
 [Terraform S3 bucket Script](https://github.com/Ritesh001-Git/Terraform-Cheat-Sheet/blob/main/s3_bucket.tf)
 
@@ -615,3 +615,21 @@ After confirmation, Terraform will create the **S3 bucket in your AWS
 account**.
 
 ------------------------------------------------------------------------
+
+# EC2 Instance using Terraform
+
+This configuration creates an EC2 instance using Terraform.
+
+🔗 **View Full Code:**  
+[EC2 Terraform File](https://github.com/Ritesh001-Git/Terraform-Cheat-Sheet/blob/main/terraform_scripts/ec2.tf)
+
+---
+
+## Key Configuration
+
+```hcl
+resource "aws_instance" "web" {
+  ami           = "ami-12345"
+  instance_type = "t2.micro"
+}
+
