@@ -726,6 +726,7 @@ output "ec2_public_ip" {
 ------------------------------------------------------------------------
 
 # User Data
+A script that runs automatically when an EC2 instance starts, used for setup or installation tasks.
 
 ``` hcl
 user_data = file("install_ngnix.sh")
@@ -734,6 +735,7 @@ user_data = file("install_ngnix.sh")
 ------------------------------------------------------------------------
 
 # Meta Arguments
+Used to create multiple resources dynamically
 
 ## count
 
@@ -748,6 +750,7 @@ output "ec2_public_ip" {
 ```
 
 ## for_each
+Used to create multiple resources dynamically using a map or set, accessed via each.key and each.value.
 
 ``` hcl
 for_each = {
@@ -757,6 +760,7 @@ for_each = {
 ```
 
 ## Loop Output
+Used to extract values from multiple resources (like public IPs) using loops or splat ([*]) expressions.
 
 ``` hcl
 output "ec2_public_ip" {
@@ -769,6 +773,7 @@ output "ec2_public_ip" {
 ------------------------------------------------------------------------
 
 # depends_on
+Explicitly defines resource dependency, ensuring one resource is created before another.
 
 ``` hcl
 depends_on = [ aws_security_group.my-sg , aws_key_pair.my-key ]
@@ -777,6 +782,7 @@ depends_on = [ aws_security_group.my-sg , aws_key_pair.my-key ]
 ------------------------------------------------------------------------
 
 # Conditional
+Allows dynamic values based on conditions using syntax like condition ? true_val : false_val.
 
 ``` hcl
 volume_size = var.env=="prd" ? 20 : 10
