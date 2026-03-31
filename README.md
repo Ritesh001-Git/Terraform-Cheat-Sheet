@@ -966,14 +966,20 @@ terraform workspace show
 ------------------------------------------------------------------------
 
 #### Example Usage in Code
+``` hcl
+variable "env" {
+  default = "prod" #dev
+  type = string
+}
+```
 
 ``` hcl
 resource "aws_instance" "example" {
   ami           = "ami-12345"
-  instance_type = terraform.workspace == "prod" ? "t3.medium" : "t2.micro"
+  instance_type = var.env == "prod" ? "t3.medium" : "t2.micro"
 
   tags = {
-    Environment = terraform.workspace
+    Environment = var.env
   }
 }
 ```
