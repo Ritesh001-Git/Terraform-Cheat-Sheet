@@ -823,7 +823,7 @@ resource "aws_instance" "my_instance"{
 
 # Terraform State
 
-## What is Terraform State?
+### What is Terraform State?
 
 Terraform state is a file (`terraform.tfstate`) that keeps track of: -
 Resources created by Terraform - Current state of infrastructure -
@@ -834,9 +834,9 @@ other way around.
 
 ------------------------------------------------------------------------
 
-# Important Commands
+### Important Commands
 
-## Refresh vs Apply
+#### Refresh vs Apply
 
 -   `terraform refresh` → Updates state file with real infrastructure
 -   `terraform apply` → Also refreshes state + applies changes
@@ -845,29 +845,19 @@ other way around.
 
 ------------------------------------------------------------------------
 
-# Terraform State Commands
-
-  --------------------------------------------------------------------------------------------------------
-  Command                  Description                   Example
-  ------------------------ ----------------------------- -------------------------------------------------
-  `terraform state list`   Lists all resources in state  `terraform state list`
-                           file                          
-
-  `terraform state show`   Shows details of a specific   `terraform state show aws_instance.my_instance`
-                           resource                      
-
-  `terraform state rm`     Removes resource from state   `terraform state rm aws_key_pair.myKey`
-                           (not from cloud)              
-
-  `terraform import`       Imports existing resource     `terraform import aws_key_pair.myKey key-id`
-                           into Terraform state          
-  --------------------------------------------------------------------------------------------------------
+### Terraform State Commands
+| Command | Description | Example |
+|--------|------------|---------|
+| `terraform state list` | Lists all resources in state file | `terraform state list` |
+| `terraform state show` | Shows details of a specific resource | `terraform state show aws_instance.my_instance` |
+| `terraform state rm` | Removes resource from state (not from cloud) | `terraform state rm aws_key_pair.myKey` |
+| `terraform import` | Imports existing resource into Terraform state | `terraform import aws_key_pair.myKey key-id` |
 
 ------------------------------------------------------------------------
 
-# Terraform Import Examples
+### Terraform Import Examples
 
-## Import Key Pair
+#### Import Key Pair
 
 ``` bash
 terraform import aws_key_pair.myKey <key-id>
@@ -875,7 +865,7 @@ terraform import aws_key_pair.myKey <key-id>
 
 ------------------------------------------------------------------------
 
-## Import EC2 Instance
+### Import EC2 Instance
 
 First define resource:
 
@@ -894,7 +884,7 @@ terraform import aws_instance.myNewInstance <instance-id>
 
 ------------------------------------------------------------------------
 
-# Terraform State Problem
+## Terraform State Problem
 
 🚫 Do NOT commit `terraform.tfstate` to GitHub
 
