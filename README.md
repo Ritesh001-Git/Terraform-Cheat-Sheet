@@ -925,7 +925,7 @@ Each workspace has its **own state file**, which means infrastructure is
 isolated per environment.
 
 ------------------------------------------------------------------------
-# Common Workspace Commands
+## Common Workspace Commands
 
 | Command | Description | Example |
 |--------|------------|---------|
@@ -934,3 +934,51 @@ isolated per environment.
 | `terraform workspace select` | Switches to a workspace | `terraform workspace select dev` |
 | `terraform workspace show` | Shows current workspace | `terraform workspace show` |
 | `terraform workspace delete` | Deletes a workspace | `terraform workspace delete dev` |
+
+## Creating and Switching Workspaces
+
+### Create Workspace
+
+``` bash
+terraform workspace new dev
+terraform workspace new staging
+terraform workspace new prod
+```
+
+### List Workspaces
+
+``` bash
+terraform workspace list
+```
+
+### Switch Workspace
+
+``` bash
+terraform workspace select dev
+```
+
+### Check Current Workspace
+
+``` bash
+terraform workspace show
+```
+
+------------------------------------------------------------------------
+
+#### Example Usage in Code
+
+``` hcl
+resource "aws_instance" "example" {
+  ami           = "ami-12345"
+  instance_type = terraform.workspace == "prod" ? "t3.medium" : "t2.micro"
+
+  tags = {
+    Environment = terraform.workspace
+  }
+}
+```
+
+👉 Behavior: - `dev` → small instance - `prod` → larger instance
+
+------------------------------------------------------------------------
+
