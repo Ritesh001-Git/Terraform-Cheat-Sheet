@@ -1,7 +1,7 @@
 # Key-Pair
 resource "aws_key_pair" "my-key" {
   key_name = "deployer-key"
-  public_key = file("../terra-key-ec2.pub")
+  public_key = file("terra-key-ec2.pub")
 }
 # VPC
 resource "aws_default_vpc" "default"{
@@ -44,7 +44,7 @@ resource "aws_security_group" "my-sg"{
 resource "aws_instance" "my_instance"{
     # count = 2 # Meta Argument
     for_each = ({
-        instance_1 = "t3.medium"
+        instance_1 = "t3.micro"
         instance_2 = "t3.micro"
     })
     depends_on = [ aws_security_group.my-sg , aws_key_pair.my-key ]
