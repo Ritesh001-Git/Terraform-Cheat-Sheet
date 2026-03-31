@@ -913,3 +913,24 @@ terraform import aws_instance.myNewInstance <instance-id>
 -   Lock released → Access allowed
 
 ------------------------------------------------------------------------
+
+# Terraform Workspaces & Environment Management
+
+## What are Terraform Workspaces?
+
+Terraform workspaces allow you to manage **multiple environments (dev,
+staging, production)** using the same configuration.
+
+Each workspace has its **own state file**, which means infrastructure is
+isolated per environment.
+
+------------------------------------------------------------------------
+# Common Workspace Commands
+
+| Command | Description | Example |
+|--------|------------|---------|
+| `terraform workspace list` | Lists all available workspaces | `terraform workspace list` |
+| `terraform workspace new` | Creates a new workspace | `terraform workspace new dev` |
+| `terraform workspace select` | Switches to a workspace | `terraform workspace select dev` |
+| `terraform workspace show` | Shows current workspace | `terraform workspace show` |
+| `terraform workspace delete` | Deletes a workspace | `terraform workspace delete dev` |
