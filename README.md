@@ -894,4 +894,32 @@ terraform import aws_instance.myNewInstance <instance-id>
 
 ------------------------------------------------------------------------
 
+# Terraform State Problem
 
+🚫 Do NOT commit `terraform.tfstate` to GitHub
+
+------------------------------------------------------------------------
+
+<img align="right" alt="GIF" src="" width="500" height="320" />
+
+
+# State Conflict Solution
+
+## Remote Backend + Locking
+
+### S3 Backend
+
+-   Store state in S3
+-   Shared across team
+
+### DynamoDB Locking
+
+-   Generates Lock ID
+-   Prevents simultaneous access
+
+### Lock Mechanism
+
+-   Lock present → No access
+-   Lock released → Access allowed
+
+------------------------------------------------------------------------
