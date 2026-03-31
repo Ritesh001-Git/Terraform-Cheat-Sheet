@@ -900,24 +900,24 @@ terraform import aws_instance.myNewInstance <instance-id>
 
 ------------------------------------------------------------------------
 
-<img align="right" alt="GIF" src="" width="500" height="320" />
+<img align="right" alt="GIF" src="https://github.com/Ritesh001-Git/Terraform-Cheat-Sheet/blob/main/terraform-remote-backend-workflow-1-1.gif" width="650" height="420" />
 
 
-# State Conflict Solution
+## State Conflict Solution
 
-## Remote Backend + Locking
+### Remote Backend + Locking
 
-### S3 Backend
+#### S3 Backend
 
 -   Store state in S3
 -   Shared across team
 
-### DynamoDB Locking
+#### DynamoDB Locking
 
 -   Generates Lock ID
 -   Prevents simultaneous access
 
-### Lock Mechanism
+#### Lock Mechanism
 
 -   Lock present → No access
 -   Lock released → Access allowed
