@@ -820,3 +820,16 @@ resource "aws_instance" "my_instance"{
     }
 }
 ```
+
+# Terraform State
+
+## What is Terraform State?
+
+Terraform state is a file (`terraform.tfstate`) that keeps track of: -
+Resources created by Terraform - Current state of infrastructure -
+Mapping between configuration and real-world resources
+
+👉 Terraform manages the state of providers (like AWS, Azure), not the
+other way around.
+
+------------------------------------------------------------------------
