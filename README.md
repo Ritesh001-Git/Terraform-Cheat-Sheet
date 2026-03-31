@@ -982,3 +982,58 @@ resource "aws_instance" "example" {
 
 ------------------------------------------------------------------------
 
+## Managing Multiple Environments
+
+### Using Workspaces
+
+-   Same code, different environments
+-   Separate state for each environment
+-   Easy switching between environments
+
+------------------------------------------------------------------------
+
+### Using Git Branching
+
+-   `main` → production
+-   `develop` → development
+-   `feature/*` → new features
+
+------------------------------------------------------------------------
+
+### Best Practice (Interview Point 🔥)
+
+Use **both together**:
+
+-   Git branches → manage code changes
+-   Workspaces → manage environment state
+
+------------------------------------------------------------------------
+
+#### Example Workflow
+
+1.  Create workspace:
+
+``` bash
+terraform workspace new dev
+```
+
+2.  Switch workspace:
+
+``` bash
+terraform workspace select dev
+```
+
+3.  Apply changes:
+
+``` bash
+terraform apply
+```
+
+4.  Switch to production:
+
+``` bash
+terraform workspace select prod
+terraform apply
+```
+
+------------------------------------------------------------------------
