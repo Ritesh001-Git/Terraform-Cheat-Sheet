@@ -865,3 +865,33 @@ other way around.
 
 ------------------------------------------------------------------------
 
+# Terraform Import Examples
+
+## Import Key Pair
+
+``` bash
+terraform import aws_key_pair.myKey <key-id>
+```
+
+------------------------------------------------------------------------
+
+## Import EC2 Instance
+
+First define resource:
+
+``` hcl
+resource "aws_instance" "myNewInstance" {
+  ami           = "unknown"
+  instance_type = "unknown"
+}
+```
+
+Then run:
+
+``` bash
+terraform import aws_instance.myNewInstance <instance-id>
+```
+
+------------------------------------------------------------------------
+
+
