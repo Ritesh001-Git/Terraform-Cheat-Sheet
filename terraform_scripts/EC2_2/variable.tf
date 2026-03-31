@@ -1,5 +1,5 @@
 variable "aws_instance_type" {
-  default = "t3.micro"
+  default = "t2.micro"
   type = string
 }
 
@@ -9,7 +9,7 @@ variable "aws_root_storage_size" {
 }
 
 variable "ec2_ami_id" {
-  default = "ami-05d2d839d4f73aafb"
+  default = "ami-0ec10929233384c7f"
   type = string
 }
 
