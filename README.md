@@ -895,6 +895,9 @@ terraform import aws_instance.myNewInstance <instance-id>
 
 ## State Conflict Solution
 
+[EC2 Part](https://github.com/Ritesh001-Git/Terraform-Cheat-Sheet/tree/main/terraform_scripts/EC2_2)
+[Remote Backend Part](https://github.com/Ritesh001-Git/Terraform-Cheat-Sheet/tree/main/terraform_scripts/Remote_Infra)
+
 ### Remote Backend + Locking
 
 #### S3 Backend
