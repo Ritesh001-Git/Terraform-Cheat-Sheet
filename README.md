@@ -833,3 +833,35 @@ Mapping between configuration and real-world resources
 other way around.
 
 ------------------------------------------------------------------------
+
+# Important Commands
+
+## Refresh vs Apply
+
+-   `terraform refresh` → Updates state file with real infrastructure
+-   `terraform apply` → Also refreshes state + applies changes
+
+👉 In modern usage, `apply` is generally used instead of `refresh`
+
+------------------------------------------------------------------------
+
+# Terraform State Commands
+
+  --------------------------------------------------------------------------------------------------------
+  Command                  Description                   Example
+  ------------------------ ----------------------------- -------------------------------------------------
+  `terraform state list`   Lists all resources in state  `terraform state list`
+                           file                          
+
+  `terraform state show`   Shows details of a specific   `terraform state show aws_instance.my_instance`
+                           resource                      
+
+  `terraform state rm`     Removes resource from state   `terraform state rm aws_key_pair.myKey`
+                           (not from cloud)              
+
+  `terraform import`       Imports existing resource     `terraform import aws_key_pair.myKey key-id`
+                           into Terraform state          
+  --------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
